@@ -1,6 +1,7 @@
 .site-header {
-  background: #FFEAAA;
   padding: .1em;
+  background: #80e5ff;
+  border-radius: 25px;
 }
 
 .icon-menu {
