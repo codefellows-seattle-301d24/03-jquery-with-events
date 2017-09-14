@@ -41,10 +41,8 @@ articleView.handleAuthorFilter = function() {
       //       and then show just the ones that match for the author that was selected.
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
      // $('#author-filter').filter($(this));
-     $('article').hide();
-     $('article[data-author="'+$(this).val()+'"]').show();
-     
-
+      $('article').hide();
+      $('article[data-author="'+$(this).val()+'"]').show();
     } else {
       // DONE: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
@@ -61,7 +59,17 @@ articleView.handleCategoryFilter = function() {
   //       When an option with a value is selected, hide all the articles, then reveal the matches.
   //       When the blank (default) option is selected, show all the articles, except for the template.
   //       Be sure to reset the #author-filter while you are at it!
+  $('#category-filter').on('change', function() {
+    if ($(this).val()) {
+      $('article').hide();
+      $('article[data-category="'+$(this).val()+'"]').show();
+    } else {
+      $('article').show();
+      $('.template').hide();
 
+    }
+    $('#author-filter').val('');
+  });
 };
 
 articleView.handleMainNav = function() {
@@ -92,4 +100,5 @@ articleView.setTeasers = function() {
 $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
+  articleView.handleCategoryFilter();
 })
