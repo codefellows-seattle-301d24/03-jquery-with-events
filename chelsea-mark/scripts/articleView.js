@@ -30,6 +30,8 @@ articleView.populateFilters = function() {
     }
   });
 };
+//MOVE when finished...
+articleView.populateFilters();
 
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
@@ -84,5 +86,4 @@ articleView.setTeasers = function() {
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
-
 })
