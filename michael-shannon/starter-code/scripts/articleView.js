@@ -37,14 +37,16 @@ articleView.handleAuthorFilter = function() {
     //         defining. "$(this)" is using jQuery to select that element, so we can chain jQuery methods
     //         onto it.
     if ($(this).val()) {
-      // TODO: If the select box was changed to an option that has a value, we need to hide all the articles,
+      // DONE: If the select box was changed to an option that has a value, we need to hide all the articles,
       //       and then show just the ones that match for the author that was selected.
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
+      $('article').hide()
+      $('article').filter('[data-author="'+$(this).val()+'"]').fadeIn(500);
 
     } else {
-      // TODO: If the select box was changed to an option that is blank, we should
+      // DONE: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
-
+      $('article').not('.template').fadeIn(500);
     }
     $('#category-filter').val('');
   });
@@ -58,10 +60,12 @@ articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
       $('article').hide()
-      $('article').filter('[data-category="'+$(this).val()+'"]').show();
+      $('article').filter('[data-category="'+$(this).val()+'"]').fadeIn(500);
       $('#author-filter').val('');
     }
-
+    else {
+      $('article').not('.template').fadeIn(500);
+    }
   })
 }
 articleView.handleMainNav = function() {
