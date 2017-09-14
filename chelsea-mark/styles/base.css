@@ -27,7 +27,7 @@ address {
 
 a, a:link, a:active {
   text-decoration: none;
-  color: #777;
+  color: rgb(32, 61, 186);
 }
 
 a:hover, a:focus {
