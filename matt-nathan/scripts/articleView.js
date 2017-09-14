@@ -33,11 +33,13 @@ articleView.populateFilters = function() {
 
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
-    debugger;
     // REVIEW: Inside this function, "this" is the element that triggered the event handler function we're
     //         defining. "$(this)" is using jQuery to select that element, so we can chain jQuery methods
     //         onto it.
     if ($(this).val()) {
+      var author = $(this).val();
+      $('#articles article').hide()
+      $('article[data-author="' + author + '"]').show()
       // TODO: If the select box was changed to an option that has a value, we need to hide all the articles,
       //       and then show just the ones that match for the author that was selected.
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
@@ -86,5 +88,7 @@ articleView.setTeasers = function() {
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
   articleView.populateFilters();
+  $('#author-filter').on('change', articleView.handleAuthorFilter);
+  $('#category-filter').on('change', articleView.handleCategoryFilter);
 
 })
