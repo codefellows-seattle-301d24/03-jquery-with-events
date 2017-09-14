@@ -76,20 +76,28 @@ articleView.handleMainNav = function() {
   //       single .tab-content section that is associated with the clicked .tab element.
   //       So: You need to dynamically build a selector string with the correct ID, based on the
   //       data available to you on the .tab element that was clicked.
+  $('.tab').on('click', function(){
+    $('.tab-content').hide();
+    $('#'+$(this).attr('data-content')).show();
 
+  })
 
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any article body.
-
   // TODO: Add an event handler to reveal all the hidden elements,
   //       when the .read-on link is clicked. You can go ahead and hide the
   //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
   //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
   //       process any .read-on clicks that happen within child nodes.
-
+  $('#articles').on('click', 'a.read-on', function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    $(this).parent().find('*:nth-of-type(n+2)').show();
+    $(this).hide();
+  })
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
 
 };
@@ -99,4 +107,6 @@ $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
+  articleView.handleMainNav();
+  articleView.setTeasers();
 })

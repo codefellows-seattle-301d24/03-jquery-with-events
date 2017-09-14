@@ -12,6 +12,9 @@ hr {
   width: 80%;
 }
 
+article {
+  background-color: rgba(232,161,39,0.4);
+}
 /*TEXT STYLES
 =======================================*/
 p {
@@ -27,7 +30,7 @@ address {
 
 a, a:link, a:active {
   text-decoration: none;
-  color: #777;
+  color: green;
 }
 
 a:hover, a:focus {
