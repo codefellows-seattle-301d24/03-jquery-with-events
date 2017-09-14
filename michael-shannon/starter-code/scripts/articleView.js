@@ -91,8 +91,16 @@ articleView.setTeasers = function() {
   //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
   //       process any .read-on clicks that happen within child nodes.
 
+  $('.read-on').on('click', function(event){
+    event.preventDefault();
+    console.log($(this).parent());
+    //find the common ancestor
+    $(this).parent().find('section.article-body *').show();
+    //find the section with the body-article class & reveal all the content
+    // $('section .article-body *:nth-of-type(n+2)').show();
+    $(this).hide();
+  })
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
-
 };
 
 // DONE: Call all of the above functions, once we are sure the DOM is ready.
