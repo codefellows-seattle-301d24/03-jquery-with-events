@@ -93,11 +93,7 @@ articleView.setTeasers = function() {
 
   $('.read-on').on('click', function(event){
     event.preventDefault();
-    console.log($(this).parent());
-    //find the common ancestor
     $(this).parent().find('section.article-body *').show();
-    //find the section with the body-article class & reveal all the content
-    // $('section .article-body *:nth-of-type(n+2)').show();
     $(this).hide();
   })
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
