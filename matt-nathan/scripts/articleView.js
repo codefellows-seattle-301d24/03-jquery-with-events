@@ -33,6 +33,7 @@ articleView.populateFilters = function() {
 
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
+    debugger;
     // REVIEW: Inside this function, "this" is the element that triggered the event handler function we're
     //         defining. "$(this)" is using jQuery to select that element, so we can chain jQuery methods
     //         onto it.
@@ -84,5 +85,6 @@ articleView.setTeasers = function() {
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
+  articleView.populateFilters();
 
 })
