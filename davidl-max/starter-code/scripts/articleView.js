@@ -12,7 +12,7 @@ articleView.populateFilters = function() {
       //       Start by grabbing the author's name from an attribute in `this` article element,
       //       and then use that bit of text to create the option tag (in a variable named `optionTag`),
       //       that we can append to the #author-filter select element.
-      authorName = $(this).attr('data-author');
+      authorName = $(this).attr('data-attribute');
       optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
 
       if ($('#author-filter option[value="' + authorName + '"]').length === 0) {
@@ -40,8 +40,8 @@ articleView.handleAuthorFilter = function() {
       // TODOne: If the select box was changed to an option that has a value, we need to hide all the articles,
       //       and then show just the ones that match for the author that was selected.
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
-      $('articles').hide();
-      $( 'article[data-attribute|=this.author]').show().fadeIn();
+      $('article').hide();
+      $( 'article[data-attribute="'+$(this).val()+'"]').fadeIn();
     } else {
       // TODOne: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
