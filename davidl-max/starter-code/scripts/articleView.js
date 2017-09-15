@@ -77,13 +77,14 @@ articleView.handleMainNav = function() {
   //       data available to you on the .tab element that was clicked.
   $('.tab').on('click', function(){
     $('main section').hide();
-    $('main section[id|="'+$(this).attr('data-content')+'"]').fadeIn();
-    console.log($(this).attr('data-content'));
+    $('#'+$(this).attr('data-content')+' ' ).fadeIn();
+    $('#'+$(this).attr('data-content')+' *' ).fadeIn();
+    console.log($('#'+$(this).attr('data-content')+''))
   })
 
 
 
-  $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
+  // $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
 articleView.setTeasers = function() {
@@ -97,7 +98,6 @@ articleView.setTeasers = function() {
   $('.read-on').on('click', function(event){
     event.preventDefault();
     $(this).parent().find('*').show();
-    $('this.read-on').text('Show less');
   })
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
 
