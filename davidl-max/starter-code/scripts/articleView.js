@@ -81,8 +81,6 @@ articleView.handleMainNav = function() {
     $('#'+$(this).attr('data-content')+' *' ).fadeIn();
     $('.template').hide();
     articleView.setTeasers();
-    console.log($('#'+$(this).attr('data-content')+''))
-    console.log($('#'+$(this).attr('data-content')+' *' ))
   })
 
 
