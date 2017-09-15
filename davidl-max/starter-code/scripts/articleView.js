@@ -79,12 +79,15 @@ articleView.handleMainNav = function() {
     $('main section').hide();
     $('#'+$(this).attr('data-content')+' ' ).fadeIn();
     $('#'+$(this).attr('data-content')+' *' ).fadeIn();
+    $('.template').hide();
+    articleView.setTeasers();
     console.log($('#'+$(this).attr('data-content')+''))
+    console.log($('#'+$(this).attr('data-content')+' *' ))
   })
 
 
 
-  // $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
+  $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
 articleView.setTeasers = function() {
