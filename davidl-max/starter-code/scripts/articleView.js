@@ -12,7 +12,7 @@ articleView.populateFilters = function() {
       //       Start by grabbing the author's name from an attribute in `this` article element,
       //       and then use that bit of text to create the option tag (in a variable named `optionTag`),
       //       that we can append to the #author-filter select element.
-      authorName = $(this).attr('data-attribute');
+      authorName = $(this).attr('data-author');
       optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
 
       if ($('#author-filter option[value="' + authorName + '"]').length === 0) {
