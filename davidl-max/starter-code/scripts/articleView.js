@@ -12,7 +12,7 @@ articleView.populateFilters = function() {
       //       Start by grabbing the author's name from an attribute in `this` article element,
       //       and then use that bit of text to create the option tag (in a variable named `optionTag`),
       //       that we can append to the #author-filter select element.
-      authorName = $(this).attr('data-attribute');
+      authorName = $(this).attr('data-author');
       optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
 
       if ($('#author-filter option[value="' + authorName + '"]').length === 0) {
@@ -41,7 +41,7 @@ articleView.handleAuthorFilter = function() {
       //       and then show just the ones that match for the author that was selected.
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
       $('article').hide();
-      $( 'article[data-attribute="'+$(this).val()+'"]').fadeIn();
+      $( 'article[data-author="'+$(this).val()+'"]').fadeIn();
     } else {
       // TODOne: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
@@ -77,8 +77,10 @@ articleView.handleMainNav = function() {
   //       data available to you on the .tab element that was clicked.
   $('.tab').on('click', function(){
     $('main section').hide();
-    $('main section[id|="'+$(this).attr('data-content')+'"]').fadeIn();
-    console.log($(this).attr('data-content'));
+    $('#'+$(this).attr('data-content')+' ' ).fadeIn();
+    $('#'+$(this).attr('data-content')+' *' ).fadeIn();
+    $('.template').hide();
+    articleView.setTeasers();
   })
 
 
@@ -97,7 +99,6 @@ articleView.setTeasers = function() {
   $('.read-on').on('click', function(event){
     event.preventDefault();
     $(this).parent().find('*').show();
-    $('this.read-on').text('Show less');
   })
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
 
